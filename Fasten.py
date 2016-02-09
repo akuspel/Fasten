@@ -4,7 +4,7 @@ bl_info = {
     "name": "Fasten",
     "description": "",
     "author": "Erk Blender",
-    "version": (1, 0),
+    "version": (1, 1),
     "blender": (2, 74, 0),
     "location": "Object properties",
     "warning": "",
@@ -12,7 +12,7 @@ bl_info = {
     "category": "Object" }
     
 
-class HelloWorldPanel(bpy.types.Panel):
+class FastenPanel(bpy.types.Panel):
     """Creates a Panel in the Object properties window"""
     bl_label = "Fasten"
     bl_idname = "OBJECT_PT_hello"
@@ -49,13 +49,15 @@ class HelloWorldPanel(bpy.types.Panel):
         
         row = layout.row()
         layout.operator("mesh.primitive_monkey_add", text="Monkey", icon='MESH_MONKEY')
+        
+        layout.operator_menu_enum("object.modifier_add", "type")
 
 def register():
-    bpy.utils.register_class(HelloWorldPanel)
+    bpy.utils.register_class(FastenPanel)
 
 
 def unregister():
-    bpy.utils.unregister_class(HelloWorldPanel)
+    bpy.utils.unregister_class(FastenPanel)
     
 
 if __name__ == "__main__":
